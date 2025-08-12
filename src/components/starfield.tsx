@@ -11,6 +11,7 @@ interface StarfieldProps {
 const Starfield: React.FC<StarfieldProps> = ({ starCount = 5000, warp = 0 }) => {
   const mountRef = useRef<HTMLDivElement>(null);
   const rendererRef = useRef<THREE.WebGLRenderer | null>(null);
+  const mouse = useRef({ x: 0, y: 0 });
 
   const onWindowResize = useCallback(() => {
     if (rendererRef.current) {
@@ -23,6 +24,11 @@ const Starfield: React.FC<StarfieldProps> = ({ starCount = 5000, warp = 0 }) => 
         }
     }
   }, []);
+
+  const onMouseMove = (event: MouseEvent) => {
+    mouse.current.x = (event.clientX / window.innerWidth) * 2 - 1;
+    mouse.current.y = -(event.clientY / window.innerHeight) * 2 + 1;
+  };
 
   useEffect(() => {
     if (!mountRef.current) return;
@@ -41,6 +47,7 @@ const Starfield: React.FC<StarfieldProps> = ({ starCount = 5000, warp = 0 }) => 
     rendererRef.current = renderer;
 
     currentMount.appendChild(renderer.domElement);
+    window.addEventListener('mousemove', onMouseMove);
 
     const starGeo = new THREE.BufferGeometry();
     const starVertices = [];
@@ -89,6 +96,12 @@ const Starfield: React.FC<StarfieldProps> = ({ starCount = 5000, warp = 0 }) => 
         
         stars.rotation.z += delta * 0.01 * warp;
 
+        // Add parallax effect based on mouse position
+        camera.position.x += (mouse.current.x * 5 - camera.position.x) * 0.02;
+        camera.position.y += (mouse.current.y * 5 - camera.position.y) * 0.02;
+        camera.lookAt(scene.position);
+
+
         camera.position.z = THREE.MathUtils.lerp(camera.position.z, warp > 0 ? 1 : 300, 0.05);
 
         renderer.render(scene, camera);
@@ -101,6 +114,7 @@ const Starfield: React.FC<StarfieldProps> = ({ starCount = 5000, warp = 0 }) => 
 
     return () => {
         window.removeEventListener('resize', onWindowResize);
+        window.removeEventListener('mousemove', onMouseMove);
         if (mountRef.current && renderer.domElement) {
           mountRef.current.removeChild(renderer.domElement);
         }
