@@ -1,25 +1,34 @@
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Rocket } from "lucide-react";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Rocket, View } from "lucide-react";
 import Link from "next/link";
 
 const mockRoutes = [
     {
         id: 'route-1',
         title: 'Tour of Inner Planets',
+        description: 'A scenic trip through the inner solar system, visiting Earth and Mars.',
         waypoints: ['Earth', 'Mars'],
         visibility: 'Public'
     },
     {
         id: 'route-2',
         title: 'Journey to the Nearest Star',
+        description: 'An expedition to Proxima Centauri b, our closest exoplanet neighbor.',
         waypoints: ['Earth', 'Proxima Centauri b'],
         visibility: 'Private'
+    },
+    {
+        id: 'route-3',
+        title: 'Nebula Photography Tour',
+        description: 'Capture stunning images of the Orion and Tarantula Nebulae.',
+        waypoints: ['Orion Nebula', 'Tarantula Nebula'],
+        visibility: 'Public'
     }
 ]
 
 export default function RoutesPage() {
-    const user = null; // Mock user
+    const user = { uid: 'mock-user' }; // Mock user to show logged-in state
 
     return (
         <div className="space-y-8">
@@ -31,17 +40,24 @@ export default function RoutesPage() {
             {user ? (
                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {mockRoutes.map(route => (
-                        <Card key={route.id} className="bg-card/70 backdrop-blur-sm">
+                        <Card key={route.id} className="bg-card/70 backdrop-blur-sm flex flex-col">
                             <CardHeader>
                                 <CardTitle>{route.title}</CardTitle>
-                                <CardDescription>{route.visibility}</CardDescription>
+                                <CardDescription>{route.description}</CardDescription>
                             </CardHeader>
-                            <CardContent>
-                                <p className="font-semibold mb-2">Waypoints:</p>
-                                <ul className="list-disc list-inside text-muted-foreground">
+                            <CardContent className="flex-grow">
+                                <p className="font-semibold mb-2 text-sm text-muted-foreground">Waypoints:</p>
+                                <ul className="list-disc list-inside text-sm">
                                     {route.waypoints.map(wp => <li key={wp}>{wp}</li>)}
                                 </ul>
                             </CardContent>
+                            <CardFooter>
+                                <Button className="w-full" variant="outline">
+                                    <Link href="#" className="flex items-center w-full justify-center">
+                                       <View className="mr-2 h-4 w-4" /> View Route
+                                    </Link>
+                                </Button>
+                            </CardFooter>
                         </Card>
                     ))}
                 </div>
