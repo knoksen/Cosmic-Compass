@@ -37,7 +37,7 @@ const Starfield: React.FC<StarfieldProps> = ({ starCount = 5000, warp = 0 }) => 
 
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(60, currentMount.clientWidth / currentMount.clientHeight, 1, 1000);
-    camera.position.z = warp > 0 ? 1 : 300;
+    camera.position.z = warp > 0 ? 1 : 400;
     (camera as any).fov = 60;
 
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
@@ -102,7 +102,7 @@ const Starfield: React.FC<StarfieldProps> = ({ starCount = 5000, warp = 0 }) => 
         camera.lookAt(scene.position);
 
 
-        camera.position.z = THREE.MathUtils.lerp(camera.position.z, warp > 0 ? 1 : 300, 0.05);
+        camera.position.z = THREE.MathUtils.lerp(camera.position.z, warp > 0 ? 1 : 400, 0.05);
 
         renderer.render(scene, camera);
         requestAnimationFrame(animate);

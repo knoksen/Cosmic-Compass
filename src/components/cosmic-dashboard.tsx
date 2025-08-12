@@ -30,22 +30,19 @@ const stats = [
 
 export default function CosmicDashboard() {
     return (
-        <div className="w-full max-w-6xl">
-            <h2 className="text-2xl font-bold font-headline mb-6 text-left">Cosmic Dashboard</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                {stats.map((stat) => (
-                    <Card key={stat.title} className="bg-card/70 backdrop-blur-sm border-border/50 text-left p-2">
-                         <CardContent className="p-4 flex items-start gap-4">
-                            {stat.icon}
-                            <div>
-                                <p className="text-sm font-medium text-muted-foreground mb-1">{stat.title}</p>
-                                <p className="text-3xl font-bold">{stat.value}</p>
-                                <p className="text-xs text-muted-foreground mt-1">{stat.description}</p>
-                            </div>
-                        </CardContent>
-                    </Card>
-                ))}
-            </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {stats.map((stat) => (
+                <Card key={stat.title} className="bg-card/70 backdrop-blur-sm border-border/50 text-left p-2">
+                     <CardContent className="p-4 flex items-start gap-4">
+                        {stat.icon}
+                        <div>
+                            <p className="text-sm font-medium text-muted-foreground mb-1">{stat.title}</p>
+                            <p className="text-3xl font-bold">{stat.value}</p>
+                            <p className="text-xs text-muted-foreground mt-1">{stat.description}</p>
+                        </div>
+                    </CardContent>
+                </Card>
+            ))}
         </div>
     );
 }
