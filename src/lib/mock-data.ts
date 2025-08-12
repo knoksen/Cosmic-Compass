@@ -2,6 +2,28 @@ import type { TargetFact } from '@/types';
 
 export const destinations: TargetFact[] = [
   {
+    id: 'tarantula-nebula',
+    name: 'Tarantula Nebula (30 Doradus)',
+    type: 'nebula',
+    description: 'A large H II region in the Large Magellanic Cloud. It is the most active star-forming region in the Local Group of galaxies, and one of the largest.',
+    facts: {
+      'Distance': '160,000 light-years',
+      'Constellation': 'Dorado',
+      'Apparent Magnitude': '8',
+      'Radius': '326 light-years',
+      'Notable Feature': 'Extremely luminous and active starburst region',
+    },
+    assets: [
+      { id: 'asset-tarantula-1', source: 'Generated', url: 'https://placehold.co/1200x800.png', thumbnailUrl: 'https://placehold.co/400x300.png', license: 'Public Domain', credit: 'NASA, ESA, CSA, STScI, Webb ERO Production Team', description: 'A vibrant image of the Tarantula Nebula captured by the James Webb Space Telescope.' },
+      { id: 'asset-tarantula-2', source: 'Generated', url: 'https://placehold.co/600x400.png', thumbnailUrl: 'https://placehold.co/400x300.png', license: 'Public Domain', credit: 'NASA, ESA', description: 'The sparkling star-forming region within the Tarantula Nebula.'},
+    ],
+    events: [],
+    missions: [
+        { name: 'James Webb Space Telescope', status: 'Observing', url: '#' },
+        { name: 'Hubble Space Telescope', status: 'Observing', url: '#' },
+    ],
+  },
+  {
     id: 'earth',
     name: 'Earth',
     type: 'planet',
