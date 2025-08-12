@@ -1,0 +1,14 @@
+{
+  "name": "Cosmic Compass Dev",
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:20",
+  "remoteUser": "node",
+  "updateContentCommand": "bash -lc 'if [ -f pnpm-lock.yaml ]; then corepack enable && pnpm i; elif [ -f yarn.lock ]; then corepack enable && yarn install --frozen-lockfile; elif [ -f package-lock.json ]; then npm ci; else npm i; fi'",
+  "postStartCommand": "bash -lc 'if [ -f package.json ]; then if jq -e .scripts.dev package.json >/dev/null 2>&1; then npm run dev; elif jq -e .scripts.start package.json >/dev/null 2>&1; then npm start; else echo \"No dev/start script found\"; fi; fi'",
+  "forwardPorts": [9002],
+  "portsAttributes": {
+    "9002": { "label": "Web App", "onAutoForward": "openBrowser" }
+  },
+  "containerEnv": {
+    "NODE_ENV": "development"
+  }
+}
