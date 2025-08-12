@@ -11,14 +11,16 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { Compass, LogIn, LogOut, UserPlus, Rocket, Map } from 'lucide-react';
+import { Compass, LogIn, LogOut, UserPlus, Rocket, Map, Menu } from 'lucide-react';
 import { Icons } from './icons';
 import { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
+import { Sheet, SheetContent, SheetTrigger } from './ui/sheet';
 
 export default function Header() {
   const user = null; // Mock user state
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -49,7 +51,30 @@ export default function Header() {
             Hangar
           </Link>
         </nav>
-        <div>
+        <div className="flex items-center gap-2">
+           <div className="md:hidden">
+            <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
+              <SheetTrigger asChild>
+                <Button variant="ghost" size="icon">
+                  <Menu className="h-6 w-6" />
+                  <span className="sr-only">Open menu</span>
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="right">
+                <div className="flex flex-col gap-4 p-4">
+                  <Link href="/starmap" className="transition-colors hover:text-accent" onClick={() => setIsMobileMenuOpen(false)}>
+                    Starmap
+                  </Link>
+                  <Link href="/routes" className="transition-colors hover:text-accent" onClick={() => setIsMobileMenuOpen(false)}>
+                    My Routes
+                  </Link>
+                  <Link href="/hangar" className="transition-colors hover:text-accent" onClick={() => setIsMobileMenuOpen(false)}>
+                    Hangar
+                  </Link>
+                </div>
+              </SheetContent>
+            </Sheet>
+          </div>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="ghost" className="relative h-10 w-10 rounded-full">
