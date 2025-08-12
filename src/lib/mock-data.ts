@@ -147,6 +147,8 @@ export const spaceships: Spaceship[] = [
     stats: {
       'FTL Drive': 'Isotropic-Baczinn-powered hyperdrive',
       'Max Speed': '105 MGLT',
+      'Armaments': '2 quad laser cannons, concussion missiles',
+      'Shielding': 'Deflector shields',
       'Crew': '2 (can be flown by 1)',
       'Length': '34.75 meters'
     }
@@ -160,6 +162,8 @@ export const spaceships: Spaceship[] = [
     stats: {
       'FTL Drive': 'Warp Drive',
       'Max Speed': 'Warp 8',
+      'Armaments': 'Phasers, photon torpedoes',
+      'Shielding': 'Deflector shields',
       'Crew': '430',
       'Length': '289 meters'
     }
@@ -173,6 +177,8 @@ export const spaceships: Spaceship[] = [
     stats: {
       'FTL Drive': 'Gravity-drive',
       'Max Speed': '4.2g acceleration',
+      'Armaments': 'None standard',
+      'Shielding': 'None standard',
       'Crew': '9',
       'Length': '82 meters'
     }
@@ -186,6 +192,8 @@ export const spaceships: Spaceship[] = [
     stats: {
       'FTL Drive': 'Time Vortex manipulation',
       'Max Speed': 'Instantaneous',
+      'Armaments': 'None (usually)',
+      'Shielding': 'Force field, dimensional shifting',
       'Crew': '1 (but can take more)',
       'Length': 'Varies (Bigger on the inside)'
     }

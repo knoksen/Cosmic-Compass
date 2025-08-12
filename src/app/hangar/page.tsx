@@ -2,7 +2,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { spaceships } from "@/lib/mock-data";
-import { Check, Heart } from "lucide-react";
+import { Check, Heart, Shield, Zap } from "lucide-react";
 
 export default function HangarPage() {
     return (
@@ -34,8 +34,8 @@ export default function HangarPage() {
                             
                             <ul className="space-y-2 text-sm mt-4">
                                 {Object.entries(ship.stats).map(([key, value]) => (
-                                    <li key={key} className="flex justify-between items-center">
-                                        <span className="text-muted-foreground">{key}</span>
+                                    <li key={key} className="flex justify-between items-start gap-4">
+                                        <span className="text-muted-foreground whitespace-nowrap">{key}</span>
                                         <span className="font-semibold text-right">{value}</span>
                                     </li>
                                 ))}

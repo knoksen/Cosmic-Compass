@@ -61,10 +61,5 @@ export interface Spaceship {
   class: string;
   origin: string;
   image: string;
-  stats: {
-    'FTL Drive': string;
-    'Max Speed': string;
-    'Crew': string;
-    'Length': string;
-  };
+  stats: { [key: string]: string };
 }
