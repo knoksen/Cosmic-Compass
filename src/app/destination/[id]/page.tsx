@@ -36,7 +36,7 @@ export default function DestinationPage({ params }: { params: { id: string } }) 
                         <p className="text-lg text-primary-foreground/80 mt-2 capitalize">{destination.type}</p>
                     </div>
                      <Link href={`/jump/${destination.id}`} passHref>
-                        <Button size="lg" className="absolute top-6 right-6" variant="secondary">
+                        <Button size="lg" className="absolute top-6 right-6">
                             <Orbit className="mr-2 h-5 w-5" /> Jump to Hyperspace
                         </Button>
                     </Link>
@@ -55,7 +55,7 @@ export default function DestinationPage({ params }: { params: { id: string } }) 
                         <TabsContent value="overview" className="mt-4 p-6 rounded-lg bg-card/70 backdrop-blur-sm">
                             <p className="text-lg leading-relaxed text-muted-foreground">{destination.description}</p>
                         </TabsContent>
-                        <TabsContent value="gallery" className="mt-4 p-6 rounded-lg bg-card/70 backdrop-blur-sm">
+                        <TabsContent value="gallery" className="mt-4 p-4 rounded-lg bg-card/70 backdrop-blur-sm">
                             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                                 {destination.assets.map(asset => (
                                     <Image key={asset.id} src={asset.url} alt={asset.description || destination.name} width={300} height={200} className="rounded-lg object-cover" data-ai-hint={`${destination.type} ${destination.name}`}/>
