@@ -3,6 +3,7 @@ import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import StarmapPage from '../starmap/page';
+import { destinations } from '@/lib/mock-data';
 
 jest.mock('@/components/starfield', () => () => <div data-testid="starfield-mock" />);
 jest.mock('@/components/cosmic-dashboard', () => () => <div data-testid="cosmic-dashboard-mock" />);
@@ -21,10 +22,10 @@ describe('StarmapPage', () => {
     
     const searchInput = screen.getByPlaceholderText('Search for a planet, star, or galaxy...');
     
-    fireEvent.change(searchInput, { target: { value: 'kepler' } });
+    fireEvent.change(searchInput, { target: { value: 'proxima' } });
     
-    expect(screen.getByText('Kepler-186f')).toBeInTheDocument();
-    expect(screen.queryByText('TRAPPIST-1e')).not.toBeInTheDocument();
+    expect(screen.getByText('Proxima Centauri b')).toBeInTheDocument();
+    expect(screen.queryByText('Earth')).not.toBeInTheDocument();
   });
 
   it('shows a message when no destinations are found', () => {
