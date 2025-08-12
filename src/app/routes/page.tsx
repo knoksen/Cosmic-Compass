@@ -23,9 +23,9 @@ export default function RoutesPage() {
 
     return (
         <div className="space-y-8">
-            <div className="text-center">
+            <div className="flex flex-col items-center text-center">
                 <h1 className="text-4xl font-bold font-headline">My Routes</h1>
-                <p className="text-muted-foreground mt-2">Your saved interstellar journeys and expeditions.</p>
+                <p className="text-muted-foreground mt-2 max-w-2xl">Your saved interstellar journeys and expeditions. Plan, manage, and share your cosmic voyages from this command center.</p>
             </div>
 
             {user ? (
@@ -46,7 +46,7 @@ export default function RoutesPage() {
                     ))}
                 </div>
             ) : (
-                <Card className="max-w-xl mx-auto text-center bg-card/70 backdrop-blur-sm">
+                <Card className="max-w-xl mx-auto text-center bg-card/70 backdrop-blur-sm p-8">
                     <CardHeader>
                         <Rocket className="mx-auto h-12 w-12 text-accent"/>
                         <CardTitle>Log in to See Your Routes</CardTitle>
@@ -54,11 +54,11 @@ export default function RoutesPage() {
                     </CardHeader>
                     <CardContent>
                         <div className="flex gap-4 justify-center">
-                            <Button asChild>
+                            <Button asChild size="lg">
                                 <Link href="/login">Login</Link>
                             </Button>
-                             <Button variant="secondary" asChild>
-                                <Link href="/">Start Exploring</Link>
+                             <Button variant="outline" size="lg" asChild>
+                                <Link href="/signup">Sign Up</Link>
                             </Button>
                         </div>
                     </CardContent>
