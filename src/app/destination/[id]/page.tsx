@@ -65,8 +65,8 @@ export default function DestinationPage({ params }: { params: { id: string } }) 
                          <TabsContent value="events" className="mt-4 p-6 rounded-lg bg-card/70 backdrop-blur-sm">
                             <ul className="space-y-4">
                                 {destination.events.length > 0 ? destination.events.map((event, i) => (
-                                    <li key={i} className="flex items-start gap-4">
-                                        <div className="text-accent font-bold">{event.date}</div>
+                                    <li key={i} className="flex items-start gap-4 p-4 rounded-lg bg-card/50">
+                                        <div className="text-accent font-bold bg-primary/20 px-3 py-1 rounded-md text-sm whitespace-nowrap">{event.date}</div>
                                         <div>
                                             <p className="font-semibold">{event.title}</p>
                                             <p className="text-sm text-muted-foreground">Source: {event.source}</p>
