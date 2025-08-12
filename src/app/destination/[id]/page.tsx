@@ -37,7 +37,7 @@ export default function DestinationPage({ params }: { params: { id: string } }) 
                     </div>
                      <Link href={`/jump/${destination.id}`} passHref>
                         <Button size="lg" className="absolute top-6 right-6" variant="secondary">
-                            <Orbit className="mr-2 h-5 w-5" /> Enter Wormhole
+                            <Orbit className="mr-2 h-5 w-5" /> Jump to Hyperspace
                         </Button>
                     </Link>
                 </div>

@@ -5,15 +5,15 @@ import { useRouter } from 'next/navigation';
 import { getDestinationById } from '@/lib/mock-data';
 import Starfield from '@/components/starfield';
 import { Progress } from '@/components/ui/progress';
-import { CheckCircle, Orbit, Waves, Atom, UnfoldVertical, Globe } from 'lucide-react';
+import { CheckCircle, Orbit, Waves, Atom, UnfoldVertical, Globe, ChevronsRight, Shield, Gauge } from 'lucide-react';
 import * as Tone from 'tone';
 import { cn } from '@/lib/utils';
 
 const milestones = [
-    { t: 0, label: "Enter Event Horizon", icon: <Orbit className="h-8 w-8 text-accent" /> },
-    { t: 0.1, label: "Navigating Singularity", icon: <Waves className="h-8 w-8 text-accent" /> },
-    { t: 0.5, label: "Quantum Tunneling", icon: <Atom className="h-8 w-8 text-accent" /> },
-    { t: 0.9, label: "Exit Manifold", icon: <UnfoldVertical className="h-8 w-8 text-accent" /> },
+    { t: 0, label: "Hyperspace Entry", icon: <ChevronsRight className="h-8 w-8 text-accent" /> },
+    { t: 0.1, label: "Navigate Channel", icon: <Waves className="h-8 w-8 text-accent" /> },
+    { t: 0.5, label: "Stabilize Field", icon: <Shield className="h-8 w-8 text-accent" /> },
+    { t: 0.9, label: "Realspace Emerge", icon: <Gauge className="h-8 w-8 text-accent" /> },
     { t: 1, label: "Arrived at Destination", icon: <Globe className="h-8 w-8 text-accent" /> },
 ];
 
@@ -55,7 +55,7 @@ export default function JumpPage({ params }: { params: { id: string } }) {
                 }
                 
                 const nextMilestone = milestones[currentMilestoneIndex + 1];
-                if (nextMilestone && newProgress / 100 >= nextMilestone.t) {
+                if (nextMilestone && newProgress / 100 >= nextMilstone.t) {
                     setCurrentMilestoneIndex(i => i + 1);
                     audioContext.then(({synth}) => {
                         synth.triggerAttackRelease("G4", "0.2s", Tone.now() + 0.1);
@@ -86,7 +86,7 @@ export default function JumpPage({ params }: { params: { id: string } }) {
             <div className="relative z-10 bg-background/50 backdrop-blur-md p-8 rounded-xl shadow-2xl border border-primary/20 max-w-4xl w-full">
                 <div className="text-center mb-8">
                     <h1 className="text-3xl md:text-4xl font-bold font-headline mb-2">
-                        Traversing wormhole to <span className="text-accent">{destination.name}</span>
+                        Hyperspace jump to <span className="text-accent">{destination.name}</span>
                     </h1>
                     <p className="text-muted-foreground">Follow the progress of your transit.</p>
                 </div>
