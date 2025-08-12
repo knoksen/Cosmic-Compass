@@ -1,11 +1,12 @@
 import { getDestinationById } from "@/lib/mock-data"
 import { notFound } from "next/navigation";
 import Image from "next/image";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Bookmark, Rocket, GalleryHorizontal, Calendar, Info } from "lucide-react";
+import { Bookmark, Rocket, GalleryHorizontal, Calendar, Info, CheckCircle } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Link from "next/link";
+import { Badge } from "@/components/ui/badge";
 
 export default function DestinationPage({ params }: { params: { id: string } }) {
     const destination = getDestinationById(params.id);
@@ -74,18 +75,27 @@ export default function DestinationPage({ params }: { params: { id: string } }) 
                                 )) : <p className="text-muted-foreground">No recent events recorded.</p>}
                             </ul>
                         </TabsContent>
-                        <TabsContent value="missions" className="mt-4 p-6 rounded-lg bg-card/70 backdrop-blur-sm">
-                             <ul className="space-y-4">
+                        <TabsContent value="missions" className="mt-4 p-4 rounded-lg bg-card/70 backdrop-blur-sm">
+                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 {destination.missions.length > 0 ? destination.missions.map((mission, i) => (
-                                    <li key={i} className="flex items-center justify-between">
-                                        <div>
-                                            <p className="font-semibold">{mission.name}</p>
-                                            <p className="text-sm text-muted-foreground">Status: {mission.status}</p>
-                                        </div>
-                                        <Button variant="outline" size="sm" asChild><a href={mission.url} target="_blank" rel="noopener noreferrer">Learn More</a></Button>
-                                    </li>
-                                )) : <p className="text-muted-foreground">No missions associated with this destination.</p>}
-                            </ul>
+                                    <Card key={i} className="bg-card/80">
+                                        <CardHeader>
+                                            <CardTitle className="text-lg flex items-center justify-between">
+                                                <span>{mission.name}</span>
+                                                <Badge variant={mission.status === 'Ongoing' || mission.status === 'Observing' ? 'default' : 'secondary'} className="text-xs">
+                                                    {mission.status === 'Observing' && <CheckCircle className="mr-1 h-3 w-3 text-green-400" />}
+                                                    {mission.status}
+                                                </Badge>
+                                            </CardTitle>
+                                        </CardHeader>
+                                        <CardContent>
+                                            <Button variant="outline" size="sm" asChild className="w-full">
+                                                <a href={mission.url} target="_blank" rel="noopener noreferrer">Learn More</a>
+                                            </Button>
+                                        </CardContent>
+                                    </Card>
+                                )) : <p className="text-muted-foreground p-4 text-center">No missions associated with this destination.</p>}
+                            </div>
                         </TabsContent>
                     </Tabs>
                 </div>
