@@ -57,7 +57,7 @@ export default function DestinationPage({ params }: { params: { id: string } }) 
                         <TabsContent value="gallery" className="mt-4 p-6 rounded-lg bg-card/70 backdrop-blur-sm">
                             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                                 {destination.assets.map(asset => (
-                                    <Image key={asset.id} src={asset.url} alt={asset.description || destination.name} width={300} height={200} className="rounded-lg object-cover" />
+                                    <Image key={asset.id} src={asset.url} alt={asset.description || destination.name} width={300} height={200} className="rounded-lg object-cover" data-ai-hint={`${destination.type} ${destination.name}`}/>
                                 ))}
                             </div>
                         </TabsContent>

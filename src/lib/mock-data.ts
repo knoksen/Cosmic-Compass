@@ -15,6 +15,8 @@ export const destinations: TargetFact[] = [
     },
     assets: [
       { id: 'asset-earth-1', source: 'Generated', url: 'https://placehold.co/1200x800.png', thumbnailUrl: 'https://placehold.co/400x300.png', license: 'Public Domain', credit: 'NASA/JPL-Caltech', description: 'View of Earth from space, showing continents and oceans.' },
+      { id: 'asset-earth-2', source: 'Generated', url: 'https://placehold.co/600x400.png', thumbnailUrl: 'https://placehold.co/400x300.png', license: 'Public Domain', credit: 'NASA', description: 'The Aurora Borealis as seen from the International Space Station.'},
+      { id: 'asset-earth-3', source: 'Generated', url: 'https://placehold.co/600x400.png', thumbnailUrl: 'https://placehold.co/400x300.png', license: 'Public Domain', credit: 'NASA', description: 'A swirling hurricane over the ocean.'},
     ],
     events: [
       { date: '2024-04-22', title: 'Lyrid Meteor Shower Peak', source: 'NASA' },
@@ -38,6 +40,8 @@ export const destinations: TargetFact[] = [
     },
     assets: [
       { id: 'asset-mars-1', source: 'Generated', url: 'https://placehold.co/1200x800.png', thumbnailUrl: 'https://placehold.co/400x300.png', license: 'Public Domain', credit: 'NASA/JPL-Caltech', description: 'A detailed mosaic of Mars showing its reddish surface and polar caps.' },
+      { id: 'asset-mars-2', source: 'Generated', url: 'https://placehold.co/600x400.png', thumbnailUrl: 'https://placehold.co/400x300.png', license: 'Public Domain', credit: 'NASA/JPL-Caltech', description: 'The surface of Mars as seen by the Curiosity rover.' },
+      { id: 'asset-mars-3', source: 'Generated', url: 'https://placehold.co/600x400.png', thumbnailUrl: 'https://placehold.co/400x300.png', license: 'Public Domain', credit: 'NASA/JPL-Caltech', description: 'A Martian sunset, with the sun appearing smaller and bluer than on Earth.' },
     ],
     events: [],
     missions: [
