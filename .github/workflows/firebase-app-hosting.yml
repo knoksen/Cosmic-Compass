@@ -1,0 +1,25 @@
+
+name: Deploy to Firebase App Hosting
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: 'Setup Firebase'
+        uses: 'google-github-actions/setup-gcloud@v2'
+        with:
+          project_id: ${{ secrets.FIREBASE_PROJECT_ID }}
+          service_account_key: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_KEY }}
+
+      - name: 'Deploy to Firebase App Hosting'
+        uses: 'google-github-actions/deploy-apphosting@v0'
+        with:
+          project_id: ${{ secrets.FIREBASE_PROJECT_ID }}
+

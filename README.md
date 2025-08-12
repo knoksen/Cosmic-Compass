@@ -22,4 +22,4 @@ Open [http://localhost:9002](http://localhost:9002) with your browser to see the
 
 ---
 
-[![Live Preview](https://img.shields.io/badge/Live%20Preview-Open%20App-brightgreen)](#)
+[![Live Preview](https://img.shields.io/badge/Live%20Preview-Open%20App-brightgreen)](https://cosmic-compass-app.web.app)

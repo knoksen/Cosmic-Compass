@@ -5,3 +5,8 @@ runConfig:
   # Increase this value if you'd like to automatically spin up
   # more instances in response to increased traffic.
   maxInstances: 1
+
+# Serve static assets from the .next/static directory
+serving-static:
+- directory: .next/static
+  path: /_next/static
