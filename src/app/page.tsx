@@ -10,7 +10,7 @@ export default function Home() {
           Cosmic Compass
         </h1>
         <p className="max-w-2xl mx-auto text-lg text-muted-foreground">
-          Your portal to the stars. Engage the FTL drive and explore the wonders of the universe.
+          Your portal to infinite realities. Chart a course through the multiverse and witness the wonders that lie beyond.
         </p>
       </div>
 
