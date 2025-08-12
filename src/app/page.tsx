@@ -5,6 +5,7 @@ import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { featuredDestinations } from '@/lib/mock-data';
 import Image from 'next/image';
+import CosmicDashboard from '@/components/cosmic-dashboard';
 
 export default function Home() {
   return (
@@ -28,6 +29,8 @@ export default function Home() {
           />
         </form>
       </div>
+
+      <CosmicDashboard />
 
       <div className="w-full max-w-6xl text-left">
         <h2 className="text-2xl font-bold font-headline mb-6">Featured Destinations</h2>
