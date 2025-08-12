@@ -49,7 +49,7 @@ export default function Home() {
               </CardHeader>
               <CardContent className="p-4">
                 <CardTitle className="text-lg font-headline">{dest.name}</CardTitle>
-                <p className="text-sm text-muted-foreground mt-1">{dest.type}</p>
+                <p className="text-sm text-muted-foreground mt-1 capitalize">{dest.type}</p>
               </CardContent>
               <CardFooter className="p-4 pt-0">
                 <Link href={`/destination/${dest.id}`} passHref>
