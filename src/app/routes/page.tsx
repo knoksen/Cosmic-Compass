@@ -48,7 +48,7 @@ export default function RoutesPage() {
             ) : (
                 <Card className="max-w-xl mx-auto text-center bg-card/70 backdrop-blur-sm">
                     <CardHeader>
-                        <Rocket className="mx-auto h-12 w-12 text-primary"/>
+                        <Rocket className="mx-auto h-12 w-12 text-accent"/>
                         <CardTitle>Log in to See Your Routes</CardTitle>
                         <CardDescription>Your personal collection of cosmic journeys awaits. Log in or create an account to start planning your expeditions.</CardDescription>
                     </CardHeader>

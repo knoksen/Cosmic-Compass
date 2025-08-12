@@ -35,7 +35,7 @@ export default function DestinationPage({ params }: { params: { id: string } }) 
                         <p className="text-lg text-primary-foreground/80 mt-2 capitalize">{destination.type}</p>
                     </div>
                      <Link href={`/jump/${destination.id}`} passHref>
-                        <Button size="lg" className="absolute top-6 right-6">
+                        <Button size="lg" className="absolute top-6 right-6" variant="secondary">
                             <Rocket className="mr-2 h-5 w-5" /> FTL Jump
                         </Button>
                     </Link>
@@ -65,7 +65,7 @@ export default function DestinationPage({ params }: { params: { id: string } }) 
                             <ul className="space-y-4">
                                 {destination.events.length > 0 ? destination.events.map((event, i) => (
                                     <li key={i} className="flex items-start gap-4">
-                                        <div className="text-primary font-bold">{event.date}</div>
+                                        <div className="text-accent font-bold">{event.date}</div>
                                         <div>
                                             <p className="font-semibold">{event.title}</p>
                                             <p className="text-sm text-muted-foreground">Source: {event.source}</p>

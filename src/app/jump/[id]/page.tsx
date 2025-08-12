@@ -84,7 +84,7 @@ export default function JumpPage({ params }: { params: { id: string } }) {
             <Starfield warp={1} />
             <div className="relative z-10 bg-background/50 backdrop-blur-sm p-8 rounded-xl shadow-2xl border border-primary/20 max-w-3xl w-full">
                 <h1 className="text-3xl md:text-4xl font-bold font-headline mb-2">
-                    Jumping to <span className="text-primary">{destination.name}</span>
+                    Jumping to <span className="text-accent">{destination.name}</span>
                 </h1>
                 <p className="text-muted-foreground mb-8">Estimated travel time: {travelDuration / 1000} seconds.</p>
 

@@ -21,14 +21,14 @@ export default function Header() {
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/50 backdrop-blur-sm">
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
         <Link href="/" className="flex items-center gap-2 font-bold font-headline text-lg">
-          <Icons.logo className="h-6 w-6 text-primary" />
+          <Icons.logo className="h-6 w-6 text-accent" />
           <span>Cosmic Compass</span>
         </Link>
         <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
-          <Link href="/" className="transition-colors hover:text-primary">
+          <Link href="/" className="transition-colors hover:text-accent">
             Destinations
           </Link>
-          <Link href="/routes" className="transition-colors hover:text-primary">
+          <Link href="/routes" className="transition-colors hover:text-accent">
             My Routes
           </Link>
         </nav>
@@ -84,7 +84,7 @@ export default function Header() {
           </DropdownMenu>
         </div>
       </div>
-      <div className="h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent"></div>
+      <div className="h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent"></div>
     </header>
   );
 }
