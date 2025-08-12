@@ -98,7 +98,7 @@ export default function DestinationPage({ params }: { params: { id: string } }) 
                             <ul className="space-y-2 text-sm">
                                 {Object.entries(destination.facts).map(([key, value]) => (
                                     <li key={key} className="flex justify-between">
-                                        <span className="text-muted-foreground">{key}</span>
+                                        <span className="text-muted-foreground capitalize">{key.replace(/([A-Z])/g, ' $1')}</span>
                                         <span className="font-semibold">{value}</span>
                                     </li>
                                 ))}
