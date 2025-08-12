@@ -79,13 +79,11 @@ export default function JumpPage({ params }: { params: { id: string } }) {
     if (!destination) {
         return <div className="text-center py-20">Destination not found.</div>;
     }
-    
-    const currentMilestone = milestones[currentMilestoneIndex];
 
     return (
         <div className="flex flex-col items-center justify-center h-full w-full text-center">
             <Starfield warp={1} />
-            <div className="relative z-10 bg-background/50 backdrop-blur-sm p-8 rounded-xl shadow-2xl border border-primary/20 max-w-4xl w-full">
+            <div className="relative z-10 bg-background/50 backdrop-blur-md p-8 rounded-xl shadow-2xl border border-primary/20 max-w-4xl w-full">
                 <div className="text-center mb-8">
                     <h1 className="text-3xl md:text-4xl font-bold font-headline mb-2">
                         Traversing wormhole to <span className="text-accent">{destination.name}</span>
@@ -94,7 +92,7 @@ export default function JumpPage({ params }: { params: { id: string } }) {
                 </div>
                 
                 <div className="relative w-full mb-12">
-                    <Progress value={progress} className="w-full h-2" />
+                    <Progress value={progress} className="w-full h-2 bg-primary/20" />
                     <div className="absolute top-1/2 -translate-y-1/2 w-full flex justify-between">
                          {milestones.map((milestone, index) => (
                            <div key={index} className="relative">
@@ -113,13 +111,13 @@ export default function JumpPage({ params }: { params: { id: string } }) {
                      {milestones.map((milestone, index) => (
                         <div key={index} className={cn(
                             "flex flex-col items-center gap-2 p-4 rounded-lg transition-all duration-300",
-                            index === currentMilestoneIndex ? "bg-primary/20 scale-105" : "opacity-50"
+                            index === currentMilestoneIndex ? "bg-primary/30 scale-105" : "opacity-50"
                         )}>
-                            <div className="w-16 h-16 bg-card/50 rounded-full flex items-center justify-center">
+                            <div className="w-16 h-16 bg-card/50 rounded-full flex items-center justify-center border border-transparent">
                                 {milestone.icon}
                             </div>
                             <span className={cn(
-                                "font-semibold",
+                                "font-semibold text-sm",
                                 index === currentMilestoneIndex && "text-primary-foreground"
                             )}>
                                 {milestone.label}
