@@ -45,6 +45,9 @@ export default function Header() {
           <Link href="/routes" className="transition-colors hover:text-accent">
             My Routes
           </Link>
+          <Link href="/hangar" className="transition-colors hover:text-accent">
+            Hangar
+          </Link>
         </nav>
         <div>
           <DropdownMenu>

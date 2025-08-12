@@ -54,3 +54,17 @@ export interface TargetFact {
   events: { date: string; title: string; source: string; }[];
   missions: { name: string; status: string; url: string; }[];
 }
+
+export interface Spaceship {
+  id: string;
+  name: string;
+  class: string;
+  origin: string;
+  image: string;
+  stats: {
+    'FTL Drive': string;
+    'Max Speed': string;
+    'Crew': string;
+    'Length': string;
+  };
+}

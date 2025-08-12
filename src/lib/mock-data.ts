@@ -1,4 +1,4 @@
-import type { TargetFact } from '@/types';
+import type { TargetFact, Spaceship } from '@/types';
 
 export const destinations: TargetFact[] = [
   {
@@ -136,3 +136,58 @@ export const featuredDestinations = destinations.slice(0, 4);
 export const getDestinationById = (id: string) => {
   return destinations.find(dest => dest.id === id);
 };
+
+export const spaceships: Spaceship[] = [
+  {
+    id: 'millennium-falcon',
+    name: 'Millennium Falcon',
+    class: 'Modified YT-1300 light freighter',
+    origin: 'Star Wars',
+    image: 'https://placehold.co/600x400.png',
+    stats: {
+      'FTL Drive': 'Isotropic-Baczinn-powered hyperdrive',
+      'Max Speed': '105 MGLT',
+      'Crew': '2 (can be flown by 1)',
+      'Length': '34.75 meters'
+    }
+  },
+  {
+    id: 'uss-enterprise',
+    name: 'USS Enterprise',
+    class: 'Constitution-class starship',
+    origin: 'Star Trek',
+    image: 'https://placehold.co/600x400.png',
+    stats: {
+      'FTL Drive': 'Warp Drive',
+      'Max Speed': 'Warp 8',
+      'Crew': '430',
+      'Length': '289 meters'
+    }
+  },
+  {
+    id: 'serenity',
+    name: 'Serenity',
+    class: 'Firefly-class transport ship',
+    origin: 'Firefly',
+    image: 'https://placehold.co/600x400.png',
+    stats: {
+      'FTL Drive': 'Gravity-drive',
+      'Max Speed': '4.2g acceleration',
+      'Crew': '9',
+      'Length': '82 meters'
+    }
+  },
+    {
+    id: 'tardis',
+    name: 'TARDIS',
+    class: 'Type 40 TT Capsule',
+    origin: 'Doctor Who',
+    image: 'https://placehold.co/600x400.png',
+    stats: {
+      'FTL Drive': 'Time Vortex manipulation',
+      'Max Speed': 'Instantaneous',
+      'Crew': '1 (but can take more)',
+      'Length': 'Varies (Bigger on the inside)'
+    }
+  }
+];
