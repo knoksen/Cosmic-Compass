@@ -1,8 +1,10 @@
+
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { spaceships } from "@/lib/mock-data";
-import { Check, Heart, Shield, Zap } from "lucide-react";
+import { Check, Heart, Shield, Zap, UnfoldVertical } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
 
 export default function HangarPage() {
     return (
@@ -10,7 +12,7 @@ export default function HangarPage() {
             <div className="flex flex-col items-center text-center">
                 <h1 className="text-4xl font-bold font-headline">Hangar Bay</h1>
                 <p className="text-muted-foreground mt-2 max-w-2xl">
-                    Your collection of interstellar vessels. Choose your ride for the next journey.
+                    A collection of vessels from across the multiverse. Each ship is a unique piece of technology from a different reality.
                 </p>
             </div>
 
@@ -29,8 +31,14 @@ export default function HangarPage() {
                             <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent" />
                         </CardHeader>
                         <CardContent className="p-6 flex-grow">
-                             <CardTitle className="text-2xl font-headline">{ship.name}</CardTitle>
-                             <CardDescription>{ship.class} from {ship.origin}</CardDescription>
+                             <CardTitle className="text-2xl font-headline flex items-center justify-between">
+                                <span>{ship.name}</span>
+                                <Badge variant="secondary" className="flex items-center gap-1.5">
+                                    <UnfoldVertical className="w-3 h-3 text-accent" />
+                                    {ship.origin}
+                                </Badge>
+                             </CardTitle>
+                             <CardDescription>{ship.class}</CardDescription>
                             
                             <ul className="space-y-2 text-sm mt-4">
                                 {Object.entries(ship.stats).map(([key, value]) => (
