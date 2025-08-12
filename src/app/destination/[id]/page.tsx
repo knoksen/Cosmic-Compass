@@ -111,11 +111,11 @@ export default function DestinationPage({ params }: { params: { id: string } }) 
                             <CardTitle>Key Facts</CardTitle>
                         </CardHeader>
                         <CardContent>
-                            <ul className="space-y-2 text-sm">
+                            <ul className="space-y-3 text-sm">
                                 {Object.entries(destination.facts).map(([key, value]) => (
-                                    <li key={key} className="flex justify-between">
-                                        <span className="text-muted-foreground capitalize">{key.replace(/([A-Z])/g, ' $1')}</span>
-                                        <span className="font-semibold">{value}</span>
+                                    <li key={key} className="flex justify-between items-center border-b border-border/50 pb-2">
+                                        <span className="text-muted-foreground capitalize">{key}</span>
+                                        <span className="font-semibold text-right">{value}</span>
                                     </li>
                                 ))}
                             </ul>

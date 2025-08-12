@@ -5,13 +5,13 @@ export const destinations: TargetFact[] = [
     id: 'tarantula-nebula',
     name: 'Tarantula Nebula (30 Doradus)',
     type: 'nebula',
-    description: 'A large H II region in the Large Magellanic Cloud. It is the most active star-forming region in the Local Group of galaxies, and one of the largest.',
+    description: 'The largest and most active star-forming region in the entire Local Group of galaxies. This cosmic nursery is home to some of the most massive stars known, creating a stunning and violent celestial landscape.',
     facts: {
       'Distance': '160,000 light-years',
       'Constellation': 'Dorado',
       'Apparent Magnitude': '8',
       'Radius': '326 light-years',
-      'Notable Feature': 'Extremely luminous and active starburst region',
+      'Notable Feature': 'Extremely luminous starburst region',
     },
     assets: [
       { id: 'asset-tarantula-1', source: 'Generated', url: 'https://placehold.co/1200x800.png', thumbnailUrl: 'https://placehold.co/400x300.png', license: 'Public Domain', credit: 'NASA, ESA, CSA, STScI, Webb ERO Production Team', description: 'A vibrant image of the Tarantula Nebula captured by the James Webb Space Telescope.' },
@@ -37,7 +37,7 @@ export const destinations: TargetFact[] = [
       'Day Length': '24 hours',
       'Orbital Period': '365.25 days',
       'Surface Gravity': '9.807 m/s²',
-      'Moons': 1,
+      'Moons': '1',
     },
     assets: [
       { id: 'asset-earth-1', source: 'Generated', url: 'https://placehold.co/1200x800.png', thumbnailUrl: 'https://placehold.co/400x300.png', license: 'Public Domain', credit: 'NASA/JPL-Caltech', description: 'View of Earth from space, showing continents and oceans.' },
@@ -63,7 +63,7 @@ export const destinations: TargetFact[] = [
       'Day Length': '24.6 hours',
       'Orbital Period': '687 Earth days',
       'Surface Gravity': '3.721 m/s²',
-      'Moons': 2,
+      'Moons': '2',
     },
     assets: [
       { id: 'asset-mars-1', source: 'Generated', url: 'https://placehold.co/1200x800.png', thumbnailUrl: 'https://placehold.co/400x300.png', license: 'Public Domain', credit: 'NASA/JPL-Caltech', description: 'A detailed mosaic of Mars showing its reddish surface and polar caps.' },
@@ -86,7 +86,7 @@ export const destinations: TargetFact[] = [
     description: 'The closest known exoplanet to the Solar System, orbiting within the habitable zone of the red dwarf star Proxima Centauri.',
     facts: {
       'Distance': '4.24 light-years',
-      'Discovered': 2016,
+      'Discovered': '2016',
       'Mass': '1.17 Earths',
       'Orbital Period': '11.2 Earth days',
       'Host Star': 'Proxima Centauri',
