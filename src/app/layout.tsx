@@ -24,12 +24,10 @@ export default function RootLayout({
       </head>
       <body className={cn('font-body antialiased min-h-screen')}>
         <Starfield />
-        <div className="relative z-10 flex min-h-screen flex-col">
-          <Header />
-          <main className="flex-1 container mx-auto px-4 py-8">
+        <Header />
+        <main className="relative z-10 flex-1 container mx-auto px-4 pt-24 pb-8">
             {children}
-          </main>
-        </div>
+        </main>
         <Toaster />
       </body>
     </html>

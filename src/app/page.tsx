@@ -10,7 +10,7 @@ import CosmicDashboard from '@/components/cosmic-dashboard';
 export default function Home() {
   return (
     <div className="flex flex-col items-center text-center space-y-12 md:space-y-16">
-      <div className="space-y-4">
+      <div className="space-y-4 pt-16">
         <h1 className="text-4xl md:text-6xl font-bold font-headline tracking-tighter text-transparent bg-clip-text bg-gradient-to-br from-accent via-purple-400 to-white">
           Cosmic Compass
         </h1>
