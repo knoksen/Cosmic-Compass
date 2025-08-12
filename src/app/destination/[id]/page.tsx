@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Bookmark, Rocket, GalleryHorizontal, Calendar, Info, CheckCircle } from "lucide-react";
+import { Bookmark, Rocket, GalleryHorizontal, Calendar, Info, CheckCircle, Orbit } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
@@ -37,7 +37,7 @@ export default function DestinationPage({ params }: { params: { id: string } }) 
                     </div>
                      <Link href={`/jump/${destination.id}`} passHref>
                         <Button size="lg" className="absolute top-6 right-6" variant="secondary">
-                            <Rocket className="mr-2 h-5 w-5" /> FTL Jump
+                            <Orbit className="mr-2 h-5 w-5" /> Enter Wormhole
                         </Button>
                     </Link>
                 </div>
