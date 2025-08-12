@@ -11,7 +11,7 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { Compass, LogIn, LogOut, UserPlus, Rocket } from 'lucide-react';
+import { Compass, LogIn, LogOut, UserPlus, Rocket, Map } from 'lucide-react';
 import { Icons } from './icons';
 import { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
@@ -39,8 +39,8 @@ export default function Header() {
           <span>Cosmic Compass</span>
         </Link>
         <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
-          <Link href="/" className="transition-colors hover:text-accent">
-            Destinations
+          <Link href="/starmap" className="transition-colors hover:text-accent">
+            Starmap
           </Link>
           <Link href="/routes" className="transition-colors hover:text-accent">
             My Routes
