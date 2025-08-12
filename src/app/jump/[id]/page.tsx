@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useEffect, useState } from 'react';
@@ -5,7 +6,7 @@ import { useRouter } from 'next/navigation';
 import { getDestinationById } from '@/lib/mock-data';
 import Starfield from '@/components/starfield';
 import { Progress } from '@/components/ui/progress';
-import { CheckCircle, Orbit, Waves, Atom, UnfoldVertical, Globe, ChevronsRight, Shield, Gauge } from 'lucide-react';
+import { CheckCircle, Waves, Globe, ChevronsRight, Shield, Gauge } from 'lucide-react';
 import * as Tone from 'tone';
 import { cn } from '@/lib/utils';
 
@@ -26,21 +27,34 @@ export default function JumpPage({ params }: { params: { id: string } }) {
     const travelDuration = 8000; // 8 seconds
 
     useEffect(() => {
-        let synth: Tone.Synth;
+        let synth: Tone.MembraneSynth;
         let noise: Tone.Noise;
         let filter: Tone.AutoFilter;
+        let lfo: Tone.LFO;
+        let gain: Tone.Gain;
 
         const startAudio = async () => {
             await Tone.start();
             
-            synth = new Tone.Synth().toDestination();
-            noise = new Tone.Noise("pink").start();
-            filter = new Tone.AutoFilter("4n").toDestination().start();
-            noise.connect(filter);
+            gain = new Tone.Gain(0.6).toDestination();
+            synth = new Tone.MembraneSynth({
+                octaves: 4,
+                pitchDecay: 0.1,
+            }).connect(gain);
 
-            synth.triggerAttackRelease("C2", "1s");
+            noise = new Tone.Noise("pink").start();
+            filter = new Tone.AutoFilter({
+                frequency: "2n",
+                baseFrequency: 200,
+                octaves: 4,
+            }).toDestination().start();
+            noise.connect(filter);
             
-            return { synth, noise, filter };
+            lfo = new Tone.LFO("4n", 400, 4000);
+            lfo.connect(filter.baseFrequency);
+            lfo.start();
+
+            return { synth, noise, filter, lfo };
         };
 
         const audioContext = startAudio();
@@ -50,15 +64,30 @@ export default function JumpPage({ params }: { params: { id: string } }) {
                 const newProgress = prev + (100 / (travelDuration / 100));
                 if (newProgress >= 100) {
                     clearInterval(interval);
-                    setTimeout(() => router.push(`/destination/${params.id}`), 1000);
+                    audioContext.then(({ lfo, synth }) => {
+                        lfo.stop();
+                        synth.triggerAttackRelease("C1", "1s", Tone.now());
+                    });
+                    setTimeout(() => router.push(`/destination/${params.id}`), 1500);
                     return 100;
                 }
                 
+                audioContext.then(({ lfo, synth }) => {
+                    const pulseRate = 4 + (newProgress / 100) * 12; // from 4n to 16n
+                    lfo.frequency.value = pulseRate;
+                    if(Math.random() < 0.1) {
+                         synth.triggerAttackRelease("C1", "8n", Tone.now(), Math.random() * 0.5 + 0.5);
+                    }
+                });
+
+
                 const nextMilestone = milestones[currentMilestoneIndex + 1];
                 if (nextMilestone && newProgress / 100 >= nextMilestone.t) {
                     setCurrentMilestoneIndex(i => i + 1);
-                    audioContext.then(({synth}) => {
-                        synth.triggerAttackRelease("G4", "0.2s", Tone.now() + 0.1);
+                    audioContext.then(() => {
+                         const milestoneSynth = new Tone.Synth().toDestination();
+                         milestoneSynth.triggerAttackRelease("G4", "0.2s", Tone.now() + 0.1);
+                         setTimeout(() => milestoneSynth.dispose(), 300);
                     });
                 }
                 
@@ -68,10 +97,12 @@ export default function JumpPage({ params }: { params: { id: string } }) {
 
         return () => {
             clearInterval(interval);
-            audioContext.then(({ synth, noise, filter }) => {
-                synth.dispose();
-                noise.dispose();
-                filter.dispose();
+            audioContext.then(({ synth, noise, filter, lfo }) => {
+                synth?.dispose();
+                noise?.dispose();
+                filter?.dispose();
+                lfo?.dispose();
+                gain?.dispose();
             });
         };
     }, [params.id, router, currentMilestoneIndex]);
