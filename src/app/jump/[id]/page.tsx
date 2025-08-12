@@ -55,7 +55,7 @@ export default function JumpPage({ params }: { params: { id: string } }) {
                 }
                 
                 const nextMilestone = milestones[currentMilestoneIndex + 1];
-                if (nextMilestone && newProgress / 100 >= nextMilstone.t) {
+                if (nextMilestone && newProgress / 100 >= nextMilestone.t) {
                     setCurrentMilestoneIndex(i => i + 1);
                     audioContext.then(({synth}) => {
                         synth.triggerAttackRelease("G4", "0.2s", Tone.now() + 0.1);
