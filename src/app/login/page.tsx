@@ -16,8 +16,8 @@ export default function LoginPage() {
     <div className="flex items-center justify-center py-12">
       <Card className="w-full max-w-md bg-card/70 backdrop-blur-sm border-border/50">
         <CardHeader className="space-y-1 text-center">
-          <CardTitle className="text-2xl font-headline">Welcome Back, Voyager</CardTitle>
-          <CardDescription>Enter your credentials to access your routes</CardDescription>
+          <CardTitle className="text-2xl font-headline">Access Your Universal Profile</CardTitle>
+          <CardDescription>Confirm your identity to sync your cosmic journey across realities</CardDescription>
         </CardHeader>
         <CardContent className="grid gap-4">
           <div className="grid grid-cols-1 gap-4">

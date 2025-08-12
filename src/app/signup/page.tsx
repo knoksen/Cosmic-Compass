@@ -16,8 +16,8 @@ export default function SignupPage() {
     <div className="flex items-center justify-center py-12">
       <Card className="w-full max-w-md bg-card/70 backdrop-blur-sm border-border/50">
         <CardHeader className="space-y-1 text-center">
-          <CardTitle className="text-2xl font-headline">Join the Expedition</CardTitle>
-          <CardDescription>Create an account to save your discoveries</CardDescription>
+          <CardTitle className="text-2xl font-headline">Establish Your Universal Presence</CardTitle>
+          <CardDescription>Create your unique profile to begin charting your course across the multiverse</CardDescription>
         </CardHeader>
         <CardContent className="grid gap-4">
           <div className="grid grid-cols-1 gap-4">
