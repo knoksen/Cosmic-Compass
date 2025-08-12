@@ -1,18 +1,18 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Users, Satellite, Telescope, Rocket } from "lucide-react";
+import { Users, Satellite, Telescope, Rocket, Star, Bot, Sigma, Atom } from "lucide-react";
 
 const stats = [
     {
-        icon: <Users className="h-8 w-8 text-accent" />,
-        title: "Astronauts in Space",
-        value: "10",
-        description: "Currently orbiting Earth",
+        icon: <Star className="h-8 w-8 text-accent" />,
+        title: "Observable Galaxies",
+        value: "2 Trillion",
+        description: "Estimated in our universe",
     },
     {
-        icon: <Satellite className="h-8 w-8 text-accent" />,
-        title: "Active Satellites",
-        value: "9,000+",
-        description: "In various orbits",
+        icon: <Sigma className="h-8 w-8 text-accent" />,
+        title: "Largest Known Star",
+        value: "Stephenson 2-18",
+        description: "By radius",
     },
     {
         icon: <Telescope className="h-8 w-8 text-accent" />,
@@ -21,10 +21,10 @@ const stats = [
         description: "And counting",
     },
     {
-        icon: <Rocket className="h-8 w-8 text-accent" />,
-        title: "Next Launch",
-        value: "2d 14h",
-        description: "Starlink Mission",
+        icon: <Atom className="h-8 w-8 text-accent" />,
+        title: "Most Distant Object",
+        value: "JADES-GS-z13-0",
+        description: "A distant galaxy",
     }
 ];
 
