@@ -17,7 +17,11 @@ export const destinations: TargetFact[] = [
       { id: 'asset-tarantula-1', source: 'Generated', url: 'https://placehold.co/1200x800.png', thumbnailUrl: 'https://placehold.co/400x300.png', license: 'Public Domain', credit: 'NASA, ESA, CSA, STScI, Webb ERO Production Team', description: 'A vibrant image of the Tarantula Nebula captured by the James Webb Space Telescope.' },
       { id: 'asset-tarantula-2', source: 'Generated', url: 'https://placehold.co/600x400.png', thumbnailUrl: 'https://placehold.co/400x300.png', license: 'Public Domain', credit: 'NASA, ESA', description: 'The sparkling star-forming region within the Tarantula Nebula.'},
     ],
-    events: [],
+    events: [
+      { date: '1987-02-23', title: 'Supernova 1987A Observed', source: 'Multiple Observatories' },
+      { date: '2022-09-06', title: 'Webb Telescope Captures New Details', source: 'NASA/ESA/CSA' },
+      { date: '789-BC-??', title: 'Anomalous Signal "The Whisper" Detected', source: 'Jarlhalla Archives' }
+    ],
     missions: [
         { name: 'James Webb Space Telescope', status: 'Observing', url: '#' },
         { name: 'Hubble Space Telescope', status: 'Observing', url: '#' },
@@ -42,6 +46,7 @@ export const destinations: TargetFact[] = [
     ],
     events: [
       { date: '2024-04-22', title: 'Lyrid Meteor Shower Peak', source: 'NASA' },
+      { date: '1969-07-20', title: 'First Manned Moon Landing', source: 'NASA' }
     ],
     missions: [
       { name: 'International Space Station', status: 'Ongoing', url: '#' },
@@ -65,7 +70,10 @@ export const destinations: TargetFact[] = [
       { id: 'asset-mars-2', source: 'Generated', url: 'https://placehold.co/600x400.png', thumbnailUrl: 'https://placehold.co/400x300.png', license: 'Public Domain', credit: 'NASA/JPL-Caltech', description: 'The surface of Mars as seen by the Curiosity rover.' },
       { id: 'asset-mars-3', source: 'Generated', url: 'https://placehold.co/600x400.png', thumbnailUrl: 'https://placehold.co/400x300.png', license: 'Public Domain', credit: 'NASA/JPL-Caltech', description: 'A Martian sunset, with the sun appearing smaller and bluer than on Earth.' },
     ],
-    events: [],
+    events: [
+        { date: '1976-07-20', title: 'Viking 1 Lands on Mars', source: 'NASA' },
+        { date: '2021-02-18', title: 'Perseverance Rover Lands', source: 'NASA/JPL-Caltech' },
+    ],
     missions: [
       { name: 'Perseverance Rover', status: 'Ongoing', url: '#' },
       { name: 'Curiosity Rover', status: 'Ongoing', url: '#' },

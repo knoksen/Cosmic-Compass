@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Bookmark, Rocket, GalleryHorizontal, Calendar, Info, CheckCircle, Orbit } from "lucide-react";
+import { Bookmark, Rocket, GalleryHorizontal, Calendar, Info, CheckCircle, Orbit, MessageSquareQuote } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
@@ -65,14 +65,20 @@ export default function DestinationPage({ params }: { params: { id: string } }) 
                          <TabsContent value="events" className="mt-4 p-6 rounded-lg bg-card/70 backdrop-blur-sm">
                             <ul className="space-y-4">
                                 {destination.events.length > 0 ? destination.events.map((event, i) => (
-                                    <li key={i} className="flex items-start gap-4 p-4 rounded-lg bg-card/50">
-                                        <div className="text-accent font-bold bg-primary/20 px-3 py-1 rounded-md text-sm whitespace-nowrap">{event.date}</div>
-                                        <div>
+                                     <li key={i} className="flex items-start gap-4 p-4 rounded-lg bg-card/50 hover:bg-card/70 transition-colors">
+                                        <div className="flex flex-col items-center justify-center text-accent font-bold bg-primary/20 p-2 rounded-md text-sm w-24 text-center">
+                                            <span className="text-lg font-headline">{event.date.split('-')[0]}</span>
+                                            <span className="text-xs">{[event.date.split('-')[1], event.date.split('-')[2]].join('-')}</span>
+                                        </div>
+                                        <div className="flex-1">
                                             <p className="font-semibold">{event.title}</p>
-                                            <p className="text-sm text-muted-foreground">Source: {event.source}</p>
+                                            <p className="text-sm text-muted-foreground flex items-center mt-1">
+                                                <MessageSquareQuote className="w-3 h-3 mr-1.5" />
+                                                Source: {event.source}
+                                            </p>
                                         </div>
                                     </li>
-                                )) : <p className="text-muted-foreground">No recent events recorded.</p>}
+                                )) : <p className="text-muted-foreground">No notable events recorded.</p>}
                             </ul>
                         </TabsContent>
                         <TabsContent value="missions" className="mt-4 p-4 rounded-lg bg-card/70 backdrop-blur-sm">
