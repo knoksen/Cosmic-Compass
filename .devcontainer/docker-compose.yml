@@ -1,0 +1,13 @@
+version: '3.8'
+services:
+  app:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ..:/workspace:cached
+    command: sleep infinity
+    ports:
+      - "9002:9002"
+    environment:
+      - NODE_ENV=development
