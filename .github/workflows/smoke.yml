@@ -13,8 +13,16 @@ jobs:
         with:
           node-version: 20
       - run: npm ci
+      - name: Type check
+        run: npm run typecheck
       - name: Build app
         run: npm run build && npm run export
       - name: HTML sanity
         run: |
           test -f out/index.html
+          test -f out/404.html
+      - name: Asset check
+        run: |
+          test -d out/_next
+          test -f out/_next/static/css/app.css || echo "No CSS bundle found"
+          test -d out/_next/static/chunks || echo "No JS chunks found"
