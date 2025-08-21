@@ -1,0 +1,20 @@
+name: Smoke Test
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm ci
+      - name: Build app
+        run: npm run build && npm run export
+      - name: HTML sanity
+        run: |
+          test -f out/index.html
