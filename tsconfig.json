@@ -1,8 +1,4 @@
-
-
-// Add your instrumentation key or use the APPLICATIONINSIGHTSKEY environment variable on your production machine to start collecting data.
-var ai = require('applicationinsights');
-ai.setup(process.env.APPLICATIONINSIGHTSKEY || 'your_instrumentation_key').start();{
+{
   "compilerOptions": {
     "target": "ES2017",
     "lib": ["dom", "dom.iterable", "esnext"],
@@ -18,13 +14,12 @@ ai.setup(process.env.APPLICATIONINSIGHTSKEY || 'your_instrumentation_key').start
     "jsx": "preserve",
     "incremental": true,
     "plugins": [
-      {
-        "name": "next"
-      }
+      { "name": "next" }
     ],
     "paths": {
       "@/*": ["./src/*"]
-    }
+  },
+  "forceConsistentCasingInFileNames": true
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
   "exclude": ["node_modules"]
