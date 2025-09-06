@@ -43,15 +43,21 @@ export default function RoutesPage() {
                 </SidebarHeader>
                 <SidebarContent>
                     <SidebarMenu>
-                        <SidebarMenuItem>
-                            <SidebarMenuButton href="#" isActive>All Routes</SidebarMenuButton>
-                        </SidebarMenuItem>
-                        <SidebarMenuItem>
-                            <SidebarMenuButton href="#">Public Routes</SidebarMenuButton>
-                        </SidebarMenuItem>
-                        <SidebarMenuItem>
-                            <SidebarMenuButton href="#">Private Routes</SidebarMenuButton>
-                        </SidebarMenuItem>
+                                                <SidebarMenuItem>
+                                                        <SidebarMenuButton asChild isActive>
+                                                            <Link href="#">All Routes</Link>
+                                                        </SidebarMenuButton>
+                                                </SidebarMenuItem>
+                                                <SidebarMenuItem>
+                                                        <SidebarMenuButton asChild>
+                                                            <Link href="#">Public Routes</Link>
+                                                        </SidebarMenuButton>
+                                                </SidebarMenuItem>
+                                                <SidebarMenuItem>
+                                                        <SidebarMenuButton asChild>
+                                                            <Link href="#">Private Routes</Link>
+                                                        </SidebarMenuButton>
+                                                </SidebarMenuItem>
                     </SidebarMenu>
                 </SidebarContent>
             </Sidebar>

@@ -15,13 +15,14 @@ const Starfield: React.FC<StarfieldProps> = ({ starCount = 5000, warp = 0 }) => 
 
   const onWindowResize = useCallback(() => {
     if (rendererRef.current) {
-        const camera = (rendererRef.current as any).camera;
-        const container = mountRef.current;
-        if(container){
-            camera.aspect = container.clientWidth / container.clientHeight;
-            camera.updateProjectionMatrix();
-            rendererRef.current.setSize(container.clientWidth, container.clientHeight);
-        }
+      const renderer = rendererRef.current as THREE.WebGLRenderer & { camera?: THREE.PerspectiveCamera };
+      const camera = renderer.camera;
+      const container = mountRef.current;
+      if (camera && container) {
+        camera.aspect = container.clientWidth / container.clientHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(container.clientWidth, container.clientHeight);
+      }
     }
   }, []);
 
@@ -38,12 +39,12 @@ const Starfield: React.FC<StarfieldProps> = ({ starCount = 5000, warp = 0 }) => 
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(60, currentMount.clientWidth / currentMount.clientHeight, 1, 1000);
     camera.position.z = warp > 0 ? 1 : 400;
-    (camera as any).fov = 60;
+  camera.fov = 60;
 
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     renderer.setSize(currentMount.clientWidth, currentMount.clientHeight);
     renderer.setPixelRatio(window.devicePixelRatio);
-    (renderer as any).camera = camera;
+  (renderer as THREE.WebGLRenderer & { camera?: THREE.PerspectiveCamera }).camera = camera;
     rendererRef.current = renderer;
 
     currentMount.appendChild(renderer.domElement);
@@ -113,14 +114,15 @@ const Starfield: React.FC<StarfieldProps> = ({ starCount = 5000, warp = 0 }) => 
     window.addEventListener('resize', onWindowResize);
 
     return () => {
-        window.removeEventListener('resize', onWindowResize);
-        window.removeEventListener('mousemove', onMouseMove);
-        if (mountRef.current && renderer.domElement) {
-          mountRef.current.removeChild(renderer.domElement);
-        }
-        renderer.dispose();
-        starGeo.dispose();
-        starMaterial.dispose();
+      window.removeEventListener('resize', onWindowResize);
+      window.removeEventListener('mousemove', onMouseMove);
+      const container = currentMount; // capture to satisfy exhaustive-deps note
+      if (container && renderer.domElement.parentNode === container) {
+        container.removeChild(renderer.domElement);
+      }
+      renderer.dispose();
+      starGeo.dispose();
+      starMaterial.dispose();
     };
   }, [starCount, warp, onWindowResize]);
 
