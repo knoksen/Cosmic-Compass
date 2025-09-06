@@ -1,7 +1,7 @@
-import { getDestinationById } from "@/lib/mock-data"
+import { getDestinationById, destinations } from "@/lib/mock-data"
 import { notFound } from "next/navigation";
 import Image from "next/image";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Bookmark, Rocket, GalleryHorizontal, Calendar, Info, CheckCircle, Orbit, MessageSquareQuote } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -129,3 +129,9 @@ export default function DestinationPage({ params }: { params: { id: string } }) 
         </div>
     );
 }
+
+export function generateStaticParams() {
+    return destinations.map(d => ({ id: d.id }));
+}
+
+export const dynamicParams = false;

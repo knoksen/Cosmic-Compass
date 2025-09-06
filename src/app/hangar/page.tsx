@@ -3,7 +3,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { spaceships } from "@/lib/mock-data";
-import { Check, Heart, Shield, Zap, UnfoldVertical } from "lucide-react";
+import { Check, Heart, UnfoldVertical } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 
 export default function HangarPage() {

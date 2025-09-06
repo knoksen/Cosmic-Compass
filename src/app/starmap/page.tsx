@@ -1,5 +1,6 @@
 
 "use client"
+import React from "react";
 import Starfield from "@/components/starfield"
 import { Search } from 'lucide-react';
 import { Input } from '@/components/ui/input';

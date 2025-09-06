@@ -3,10 +3,17 @@ import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import StarmapPage from '../starmap/page';
-import { destinations } from '@/lib/mock-data';
 
-jest.mock('@/components/starfield', () => () => <div data-testid="starfield-mock" />);
-jest.mock('@/components/cosmic-dashboard', () => () => <div data-testid="cosmic-dashboard-mock" />);
+jest.mock('@/components/starfield', () => {
+  const StarfieldMock: React.FC = () => <div data-testid="starfield-mock" />;
+  StarfieldMock.displayName = 'StarfieldMock';
+  return StarfieldMock;
+});
+jest.mock('@/components/cosmic-dashboard', () => {
+  const CosmicDashboardMock: React.FC = () => <div data-testid="cosmic-dashboard-mock" />;
+  CosmicDashboardMock.displayName = 'CosmicDashboardMock';
+  return CosmicDashboardMock;
+});
 
 describe('StarmapPage', () => {
   it('renders the Starmap page with a search input and destinations', () => {
