@@ -1,6 +1,6 @@
 {
   "name": "nextn",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "scripts": {
     "dev": "next dev -p 9002",
@@ -11,7 +11,9 @@
     "export": "next export",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
-    "test": "jest"
+  "test": "jest",
+  "release:tag": "git tag v$npm_package_version && git push origin v$npm_package_version",
+  "deploy:local": "set NEXT_PUBLIC_BASE_PATH=/${npm_package_name}&& npm run build && npm run export"
   },
   "dependencies": {
     "@genkit-ai/googleai": "^1.14.1",
